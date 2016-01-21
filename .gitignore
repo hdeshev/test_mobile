@@ -1,0 +1,6 @@
+app/**/*.js
+app/**/*.html.ts
+dist/
+node_modules/
+platforms/
+typings/

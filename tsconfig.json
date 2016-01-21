@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "files": [
+        "app/access/backend.service.ts",
+        "app/access/login.ts",
+        "app/app.html.ts",
+        "app/app.ts",
+        "app/bootstrap.ts",
+        "typings/angular2/angular2.d.ts",
+        "typings/es6-promise/es6-promise.d.ts",
+        "typings/rx/rx-lite.d.ts",
+        "typings/rx/rx.d.ts",
+        "typings/tsd.d.ts"
+    ]
+}
