@@ -15,12 +15,13 @@ class BackendService {
 
     public flex<T>(name: string, action: string, args: {}, method?: string, serverAddress?: string): any {
 
+        console.log('FLEX');
         let methodName: string;
 
         if (isPresent(method)) {
             methodName = method;
         } else {
-            methodName = 'post';
+            methodName = 'get';
         }
 
         if (args === undefined || args === null) {
@@ -37,7 +38,8 @@ class BackendService {
         }
 
         let address: string = (serverAddress ? serverAddress : this.serverAddress) +
-            '/api/' + name.toLowerCase() + '/' + action;
+            '/' + action;
+        console.log('address: ' + address);
 
         let options: any = {
             headers: headers,
@@ -47,16 +49,20 @@ class BackendService {
         switch(methodName) {
             case 'get':
                 options.search = '';
-            for (let arg in args) {
-                options.search = options.search + arg + '=' + args[arg];
-            }
+                for (let arg in args) {
+                    options.search = options.search + arg + '=' + args[arg];
+                }
             break;
             default:
                 options.body = JSON.stringify(args);
         }
 
         this.http.request(address, options)
-            .map(res => res.json())
+            .map(res => {
+                let parsed = res.json();
+                console.log('parsed response: ' + parsed);
+                return parsed;
+            })
             .subscribe(
                 (data) => {
                     deferred.resolve(data);

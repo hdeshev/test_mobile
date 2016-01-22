@@ -27,6 +27,7 @@ import {BackendService} from './access/backend.service';
             <login *ngIf="route === 'login'"
                 (on-login)="list()">
             </login>
+            <Label *ngIf="route !== 'login'" [text]="'Logged in: ' + route"></Label>
         </StackLayout>
         </ScrollView>
     `
@@ -42,10 +43,11 @@ class App implements OnInit {
     }
 
     ngOnInit() {
-        this.backendService.serverAddress = 'http://localhost:8080';
+        this.backendService.serverAddress = 'http://192.168.56.1:8080';
     }
     list() {
         console.log('list');
+        this.route = 'main';
     }
 }
 

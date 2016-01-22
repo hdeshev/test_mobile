@@ -51,7 +51,7 @@ class Login {
             userName: this.userName,
             password: this.password
         };
-        this.backendService.flex('access', 'login', user)
+        this.backendService.flex('access', 'login.json', user)
             .then(() => {
                 this.onLogin.emit(null);
             });
