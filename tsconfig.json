@@ -9,13 +9,13 @@
     "files": [
         "app/access/backend.service.ts",
         "app/access/login.ts",
-        "app/app.html.ts",
         "app/app.ts",
-        "app/bootstrap.ts",
-        "typings/angular2/angular2.d.ts",
-        "typings/es6-promise/es6-promise.d.ts",
-        "typings/rx/rx-lite.d.ts",
-        "typings/rx/rx.d.ts",
-        "typings/tsd.d.ts"
+        "node_modules/tns-core-modules/tns-core-modules.d.ts",
+        "app/compat.d.ts",
+        "app/bootstrap.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "platforms"
     ]
 }
